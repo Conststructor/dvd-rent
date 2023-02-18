@@ -1,6 +1,7 @@
 package com.example.dvdrent.services;
 
 import com.example.dvdrent.entities.Director;
+import com.example.dvdrent.entities.Genre;
 import com.example.dvdrent.repositories.DirectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

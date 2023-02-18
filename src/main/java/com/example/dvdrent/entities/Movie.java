@@ -12,11 +12,11 @@ public class Movie {
     private long id;
     @Column(name = "name")
     private String name;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn (name = "director_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "director_id")
     private Director directorId;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.LAZY)
-    @JoinColumn (name = "genre_id")
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinColumn(name = "genre_id")
     private Genre genreId;
 
     public Movie() {
@@ -72,6 +72,7 @@ public class Movie {
     public int hashCode() {
         return Objects.hash(id, name, directorId, genreId);
     }
+
     @Override
     public String toString() {
         return "Movie{" +
