@@ -30,4 +30,23 @@ public class DirectorServiceImpl implements DirectorService {
     public Optional<Director> getDirectorById(long id) {
         return directorRepository.findById(id);
     }
+
+    @Override
+    @Transactional
+    public Director createDirector(Director director) {
+        return directorRepository.save(director);
+    }
+
+    @Override
+    @Transactional
+    public void updateDirector(Director director) {
+        directorRepository.save(director);
+    }
+
+    @Override
+    @Transactional
+    public void deleteDirector(Director director) {
+        directorRepository.delete(director);
+    }
+
 }

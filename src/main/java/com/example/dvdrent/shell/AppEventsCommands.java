@@ -1,5 +1,6 @@
 package com.example.dvdrent.shell;
 
+import com.example.dvdrent.entities.Director;
 import com.example.dvdrent.services.DirectorService;
 import com.example.dvdrent.services.GenreService;
 import com.example.dvdrent.services.MovieService;
@@ -8,6 +9,7 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.h2.tools.Console;
 import org.springframework.shell.standard.ShellOption;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -71,5 +73,23 @@ public class AppEventsCommands {
         Scanner input = new Scanner(System.in);
         long id = input.nextLong();
         System.out.println(movieService.getMovieById(id).toString());
+    }
+
+    //Create
+    @ShellMethod(value = "Create new director", key = {"cd","createdirector"})
+    public String createDirector(@ShellOption(defaultValue = "John Doe") String fullname){
+        return directorService.createDirector(new Director(fullname)).toString();
+    }
+
+    //Update
+    @ShellMethod(value = "Update director", key ={"ud","updatedirector"})
+    public void updateDirector(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "incognito") String fullname){
+        directorService.updateDirector(new Director(id,fullname));
+    }
+
+    //Delete
+    @ShellMethod(value = "Delete director", key = {"dd","deletedirector"})
+    public void deleteDirector(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "John Bunyan") String fullname){
+        directorService.deleteDirector(new Director(id, fullname));
     }
 }

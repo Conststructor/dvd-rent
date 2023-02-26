@@ -11,4 +11,5 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
+    // в pom файле поменять версию <java.version>1.8</java.version> на 11
 }

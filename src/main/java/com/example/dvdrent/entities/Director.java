@@ -16,6 +16,15 @@ public class Director {
     public Director() {
     }
 
+    public Director(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public Director(long id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+    }
+
     public long getId() {
         return id;
     }
