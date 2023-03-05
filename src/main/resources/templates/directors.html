@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directors</title>
+</head>
+<body>
+<tr th:each="director : ${directorsList}">
+  <td th:text="${director.getId()}"></td>
+  <td th:text="${director.getFullName()}"></td>
+  </br>
+</tr>
+</body>
+</html>
