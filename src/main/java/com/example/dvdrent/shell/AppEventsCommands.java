@@ -1,6 +1,8 @@
 package com.example.dvdrent.shell;
 
 import com.example.dvdrent.entities.Director;
+import com.example.dvdrent.entities.Genre;
+import com.example.dvdrent.entities.Movie;
 import com.example.dvdrent.services.DirectorService;
 import com.example.dvdrent.services.GenreService;
 import com.example.dvdrent.services.MovieService;
@@ -11,6 +13,7 @@ import org.h2.tools.Console;
 import org.springframework.shell.standard.ShellOption;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.OneToMany;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -81,15 +84,44 @@ public class AppEventsCommands {
         return directorService.createDirector(new Director(fullname)).toString();
     }
 
+    @ShellMethod(value = "Create new genre", key = {"cg","creategenre"})
+    public String createGenre(@ShellOption(defaultValue = "Create new genre") String name){
+        return genreService.createGenre(new Genre(name)).toString();
+    }
+
+    @ShellMethod(value = "Create newe movie", key = {"cm", "createmovie"})
+    public  String createMovie(@ShellOption(defaultValue = "Create new movie") String name){
+        return movieService.createMovie(new Movie(name)).toString();
+    }
     //Update
     @ShellMethod(value = "Update director", key ={"ud","updatedirector"})
     public void updateDirector(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "incognito") String fullname){
         directorService.updateDirector(new Director(id,fullname));
     }
 
+    @ShellMethod(value = "Update genre",key = {"ug", "updategenre"})
+    public void updateGenre(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "new genre") String name){
+        genreService.updateGenre(new Genre(id,name));
+    }
+
+    @ShellMethod(value = "update movie", key = {"um", "updatemovie"})
+    public void updateMovie(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "new movie")String name){
+        movieService.updateMovie(new Movie(id, name));
+    }
+
     //Delete
     @ShellMethod(value = "Delete director", key = {"dd","deletedirector"})
     public void deleteDirector(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "John Bunyan") String fullname){
         directorService.deleteDirector(new Director(id, fullname));
+    }
+
+    @ShellMethod(value = "Delete genre", key = {"dg","deletegenre"})
+    public void deleteGenre(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "History") String name){
+        genreService.deleteGenre(new Genre(id, name));
+    }
+
+    @ShellMethod(value = "Delete movie", key = {"dm", "deletemovie"})
+    public void deleteMovie(@ShellOption(defaultValue = "1") long id, @ShellOption(defaultValue = "The Pilgrim’s Progress") String name){
+        movieService.deleteMovie(new Movie(id, name));
     }
 }

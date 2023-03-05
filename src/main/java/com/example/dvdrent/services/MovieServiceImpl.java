@@ -1,5 +1,6 @@
 package com.example.dvdrent.services;
 
+import com.example.dvdrent.entities.Director;
 import com.example.dvdrent.entities.Movie;
 import com.example.dvdrent.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,23 @@ public class MovieServiceImpl implements MovieService {
     @Transactional(readOnly = true)
     public Optional<Movie> getMovieById(long id) {
         return movieRepository.findById(id);
+    }
+
+    @Override
+    @Transactional
+    public Movie createMovie(Movie movie) {
+        return movieRepository.save(movie);
+    }
+
+    @Override
+    @Transactional
+    public void updateMovie(Movie movie) {
+        movieRepository.save(movie);
+    }
+
+    @Override
+    @Transactional
+    public void deleteMovie (Movie movie) {
+        movieRepository.delete(movie);
     }
 }

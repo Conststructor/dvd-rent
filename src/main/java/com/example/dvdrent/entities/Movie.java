@@ -22,9 +22,13 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Director director_id, Genre genre_id) {
-        this.directorId = director_id;
-        this.genreId = genre_id;
+    public Movie(String name) {
+        this.name = name;
+    }
+
+    public Movie(long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public long getId() {
