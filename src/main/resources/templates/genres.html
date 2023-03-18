@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Genres</title>
+</head>
+<body>
+<tr th:each="genre : ${genreList}">
+    <td th:text="${genre.getId()}"></td>
+    <td th:text="${genre.getName()}"></td>
+    </br>
+</tr>
+</body>
+</html>

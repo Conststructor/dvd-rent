@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+</head>
+<body>
+<tr th:each="movie : ${moviesList}">
+  <td th:text="${movie.getId()}"></td>
+  <td th:text="${movie.getName()}"></td>
+  </br>
+</tr>
+</body>
+</html>

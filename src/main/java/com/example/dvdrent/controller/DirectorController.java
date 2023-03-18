@@ -32,7 +32,7 @@ public class DirectorController {
     }
 
     @GetMapping("/directors")
-    public String carPage(Model model) {
+    public String directorsPage(Model model) {
         List<Director> directorsList = (List<Director>) directorRepository.findAll();
         model.addAttribute("directorsList", directorsList);
         return "directors";
