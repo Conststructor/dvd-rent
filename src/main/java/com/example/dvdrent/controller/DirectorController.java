@@ -24,6 +24,11 @@ public class DirectorController {
         return "welcome";
     }
 
+    @GetMapping("/index")
+    public String indexPage(){
+        return "index";
+    }
+
     @GetMapping("/director")
     public String getDirectorById(@RequestParam("id") long id, Model model) {
         Director director = directorRepository.findById(id).get();

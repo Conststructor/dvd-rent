@@ -8,6 +8,8 @@
 <tr th:each="movie : ${moviesList}">
   <td th:text="${movie.getId()}"></td>
   <td th:text="${movie.getName()}"></td>
+<!--    <a href="http://localhost:8080/movie?id=${movie.getId()}">movie (user: admin - password: admin)</a>-->
+    <button th:onclick="'window.location.href = \'/movie?id='+${movie.getId()} + '\''"> Подробнее </button>
   </br>
 </tr>
 </body>

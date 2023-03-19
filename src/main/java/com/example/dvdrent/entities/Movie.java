@@ -22,6 +22,10 @@ public class Movie {
     public Movie() {
     }
 
+    public Movie(long id) {
+        this.id = id;
+    }
+
     public Movie(String name) {
         this.name = name;
     }
@@ -29,6 +33,19 @@ public class Movie {
     public Movie(long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Movie(String name, Director directorId, Genre genreId) {
+        this.name = name;
+        this.directorId = directorId;
+        this.genreId = genreId;
+    }
+
+    public Movie(long id, String name, Director directorId, Genre genreId) {
+        this.id = id;
+        this.name = name;
+        this.directorId = directorId;
+        this.genreId = genreId;
     }
 
     public long getId() {

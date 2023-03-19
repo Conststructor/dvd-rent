@@ -8,7 +8,9 @@
 <tr th:each="director : ${directorsList}">
   <td th:text="${director.getId()}"></td>
   <td th:text="${director.getFullName()}"></td>
-  </br>
+<!--    <a href="http://localhost:8080/movie?id=${director.getId()}">director (user: admin - password: admin)</a>-->
+    <button th:onclick="'window.location.href = \'/director?id='+${director.getId()} + '\''"> Подробнее </button>
+    </br>
 </tr>
 </body>
 </html>
